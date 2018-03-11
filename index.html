@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Train Schedule</title>
+
+  <!-- Added a link to import jQuery and javascript files-->
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDBtd4kWvH873D4_ttAgHxiS12ooMNYzuU",
+      authDomain: "trainschedule-f5b52.firebaseapp.com",
+      databaseURL: "https://trainschedule-f5b52.firebaseio.com",
+      projectId: "trainschedule-f5b52",
+      storageBucket: "trainschedule-f5b52.appspot.com",
+      messagingSenderId: "416224647053"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+
+  <script type="text/javascript" src="./assets/javascript/moment.js"></script>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="trainSchedule">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Train Name</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Frequency</th>
+            <th scope="col">Next Arrival</th>
+            <th scope="col">Minute Away</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">newYork Express</th>
+            <td>New Jersey</td>
+            <td>20</td>
+            <td>10:00 AM</td>
+            <td>5</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div id="form-container">
+      <form>
+        <div class="form-group">
+          <label for="input-train-name">Train Name</label>
+          <input type="text" class="form-control" id="input-train-name" aria-describedby="trainNameHelp" placeholder="Enter train name">
+          <small id="trainNameHelp" class="form-text text-muted">Please enter train name</small>
+        </div>
+        <div class="form-group">
+          <label for="input-train-destination">Destination</label>
+          <input type="text" class="form-control" id="input-train-destination" aria-describedby="trainDestinationHelp" placeholder="Enter train Destintion">
+          <small id="trainDestinationHelp" class="form-text text-muted">Please enter train destination name</small>
+        </div>
+        <div class="form-group">
+          <label for="input-train-time">First Train Time(HH:mm- military time)</label>
+          <input type="text" class="form-control" id="input-train-time" aria-describedby="trainTimeHelp" placeholder="Enter first train time">
+          <small id="trainTimeHelp" class="form-text text-muted">Please enter first train time</small>
+        </div>
+        <div class="form-group">
+          <label for="input-train-frequency">Frequency (min)</label>
+          <input type="text" class="form-control" id="input-train-frequency" aria-describedby="trainFrequencyHelp" placeholder="Enter train frequency">
+          <small id="trainFrequencyHelp" class="form-text text-muted">Please enter frequency of the train</small>
+        </div>
+        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+  </div>
+</body>
+
+</html>
