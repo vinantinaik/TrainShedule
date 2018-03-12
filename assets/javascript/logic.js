@@ -25,8 +25,14 @@ $(document).ready(function () {
         $("tbody").empty();
         $.each(data,function(key,value){
 			
-			timeDiff=moment().diff(moment.unix(value.firstTrain),"minutes");
+			var a = moment.unix(value.firstTrain);
+			a = moment.unix(3600);
 			
+			var b = moment();
+			
+			//timeDiff=moment().diff(moment.unix(value.firstTrain),"minutes");			
+			
+			timeDiff = b.diff(a,"minutes");
 			remainingTime=  timeDiff % value.frequency;
 			
 			timeToArrive = value.frequency - remainingTime;
@@ -69,7 +75,7 @@ $(document).ready(function () {
 
         var trainName = $("#input-train-name").val().trim();
         train.destination = $("#input-train-destination").val().trim();
-        train.firstTrain = $("#input-train-time").val().trim();
+        train.firstTrain = moment($("#input-train-time").val().trim(),"HH:mm").subtract(1, "years").format("X");
         train.frequency = $("#input-train-frequency").val().trim();
 
         var trainObj ={
