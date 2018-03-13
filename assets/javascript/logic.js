@@ -26,12 +26,10 @@ $(document).ready(function () {
         $.each(data,function(key,value){
 			
 			var a = moment.unix(value.firstTrain);
-			a = moment.unix(3600);
-			
+					
 			var b = moment();
 			
-			//timeDiff=moment().diff(moment.unix(value.firstTrain),"minutes");			
-			
+				
 			timeDiff = b.diff(a,"minutes");
 			remainingTime=  timeDiff % value.frequency;
 			
@@ -84,6 +82,7 @@ $(document).ready(function () {
         };
 
         db.ref().update(trainObj);
+        $("#newTrain").trigger("reset");
 
 
 

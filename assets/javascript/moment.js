@@ -32,6 +32,8 @@ $(document).ready(function () {
             var tdTag2 = $("<td>");
             tdTag2.html(value.frequency);
     
+            getNextTrainTime(value.firstTrain);
+            
             var tdTag3 = $("<td>");
             tdTag3.html(value.firstTrain);
     
@@ -46,7 +48,7 @@ $(document).ready(function () {
 
        
 
-        getNextTrainTime(data.firstTrain);
+        
 
     });
 
@@ -71,28 +73,17 @@ $(document).ready(function () {
 
 
     });
-    // getTrainSchedules();
-
-    // function getTrainSchedules() {
-    //     var data = snapshot.val();
-    // }
+    
 
     function getNextTrainTime(firstTrainTime) {
+     
+        var d= new Date();
+
+       var startTime = new Date(firstTrainTime);
+        var currentTime = d.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 
        
-
-        var time = new Date();
-
-        var timeStart = new Date(time.getDate().toString() + " " +firstTrainTime) ;
-
-        var diff = (time - timeStart)/60000;
-
-        var minutes = diff % 60;
-
-        var hours = (diff- minutes)/60;
-        console.log(
-            time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
-        );
+        
         
 
     }
