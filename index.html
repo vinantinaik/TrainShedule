@@ -11,8 +11,8 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
-  <link rel="stylesheet" href="./assets/css/style.css">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -46,7 +46,11 @@
 <body>
   <div class="container">
     <div class="jumbotron">
-      <h1 class="display-4">TRI RAIL</h1>
+      <h1>
+        <img src="./assets/images/train.png"> NTES RAIL
+        <img src="./assets/images/train.png">
+      </h1>
+      <h2>National Train Enquiry System</h1>
     </div>
 
     <div class="card">
@@ -55,7 +59,7 @@
       </h6>
       <div class="card-body">
         <div class="table-responsive-md">
-          <table class="table table-bordered">
+          <table class="table table-bordered table-hover">
             <thead>
               <tr>
                 <th scope="col">Train Name</th>
@@ -65,7 +69,7 @@
                 <th scope="col">Minute Away</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class=>
 
 
             </tbody>
@@ -84,22 +88,23 @@
           <form id="newTrain">
             <div class="form-group">
               <label for="input-train-name">Train Name</label>
-              <input type="text" class="form-control" id="input-train-name" placeholder="Enter train name">
+
+              <input type="text" class="form-control" id="input-train-name" placeholder="Enter train name" required>
 
             </div>
             <div class="form-group">
               <label for="input-train-destination">Destination</label>
-              <input type="text" class="form-control" id="input-train-destination" placeholder="Enter train Destintion">
+              <input type="text" class="form-control" id="input-train-destination" placeholder="Enter train Destintion" required>
 
             </div>
             <div class="form-group">
               <label for="input-train-time">First Train Time(HH:mm- military time)</label>
-              <input type="text" class="form-control" id="input-train-time" placeholder="Enter first train time">
+              <input type="text" class="form-control" id="input-train-time" placeholder="Enter first train time" required>
 
             </div>
             <div class="form-group">
               <label for="input-train-frequency">Frequency (min)</label>
-              <input type="text" class="form-control" id="input-train-frequency" placeholder="Enter train frequency">
+              <input type="text" class="form-control" id="input-train-frequency" placeholder="Enter train frequency" required>
 
             </div>
             <button type="submit" id="submit" class="btn btn-primary">Submit</button>
