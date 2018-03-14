@@ -29,6 +29,8 @@ $(document).ready(function () {
 
             var b = moment();
 
+            var tbl="";
+
 
             timeDiff = b.diff(a, "minutes");
             remainingTime = timeDiff % value.frequency;
@@ -55,7 +57,9 @@ $(document).ready(function () {
             var tdTag4 = $("<td>");
             tdTag4.html(timeToArrive);
 
-            trTag.append(tdTag1, tdTag2, tdTag3, tdTag4);
+            var tdTag5 = $("<td><img class='btn' src='./assets/images/glyphicons-remove.png'></td>");
+
+            trTag.append(tdTag1, tdTag2, tdTag3, tdTag4,tdTag5);
 
             $("tbody").append(trTag);
 
@@ -67,13 +71,13 @@ $(document).ready(function () {
     });
 
     $("#submit").on("click", function (event) {
-        event.preventDefault();
+       // event.preventDefault();
 
 
 
         var trainName = $("#input-train-name").val().trim();
         train.destination = $("#input-train-destination").val().trim();
-        train.firstTrain = moment($("#input-train-time").val().trim(), "HH:mm").subtract(1, "years").format("X");
+        train.firstTrain = moment($("#input-train-time").val().trim(), "HH:mm A").subtract(1, "years").format("X");
         train.frequency = $("#input-train-frequency").val().trim();
 
         var trainObj = {
@@ -82,7 +86,7 @@ $(document).ready(function () {
         };
 
         db.ref().update(trainObj);
-        $("#newTrain").trigger("reset");
+        //$("#newTrain").trigger("reset");
 
 
 
