@@ -29,7 +29,7 @@ $(document).ready(function () {
 
             var b = moment();
 
-            var tbl="";
+
 
 
             timeDiff = b.diff(a, "minutes");
@@ -39,12 +39,15 @@ $(document).ready(function () {
 
             nextTrain = moment().add(timeToArrive, "m").format("hh:mm: A");
 
+
             var trTag = $("<tr>");
             trTag.addClass("trainRow");
+
             var thTag = $("<th>");
             thTag.attr("scope", "row");
             thTag.html(key);
             trTag.append(thTag);
+
             var tdTag1 = $("<td>");
             tdTag1.html(value.destination);
 
@@ -57,9 +60,12 @@ $(document).ready(function () {
             var tdTag4 = $("<td>");
             tdTag4.html(timeToArrive);
 
-            var tdTag5 = $("<td><img class='btn' src='./assets/images/glyphicons-remove.png'></td>");
+            var tdTag5 = $("<td class='deleteTrain'><img class='btn' src='./assets/images/glyphicons-remove.png'></td>");
+            tdTag5.attr("train-data",key);
 
-            trTag.append(tdTag1, tdTag2, tdTag3, tdTag4,tdTag5);
+            trTag.append(tdTag1, tdTag2, tdTag3, tdTag4, tdTag5);
+
+
 
             $("tbody").append(trTag);
 
@@ -67,11 +73,18 @@ $(document).ready(function () {
 
 
 
-       
+
     });
 
+$(document).on("click",".deleteTrain",function(){
+
+    var train = $(this).attr("train-data");
+    db.ref().child(train).remove();
+
+})
+
     $("#submit").on("click", function (event) {
-       // event.preventDefault();
+        // event.preventDefault();
 
 
 
@@ -102,6 +115,6 @@ $(document).ready(function () {
             $(this).find("span").hide();
         });
 
-  
+
 
 });
